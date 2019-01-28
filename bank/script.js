@@ -16,31 +16,47 @@ const setAttribute = (element, attr, value) => element.setAttribute(attr, value)
 const appendChild = (parent, child) => parent.appendChild(child);
 
 /*
-  * appRender(rootElement)(applicationElement);
+  element: Any
+  => : Boolean
 */
-const appRender = root => app => {
-  // Check `root`
-  if (!isElement(root)) return console.error('`root` is not an element');
-  if (!isElementRenderedInDOM(root)) return console.error('`root` is not real');
-
-  // Check `app`
-  console.log(typeof app);
-
-  return console.log('OK.');
-}
-
 const isElement = element => (
   element instanceof HTMLElement
-    || element instanceof Element
+  || element instanceof Element
 );
 
+/*
+  element: HTMLElement(**)
+  => : Boolean
+*/
 const isElementRenderedInDOM = element => (
   document.body.contains(element)
 );
 
+/*
+  root: HTMLElement(DOM render)
+  app: HTMLElement(shallow render)
+  => : HTMLElement(DOM render)
+*/
+const appRender = (root, app) => {
+  // Check `root`
+  if (!isElement(root))
+    return console.error('root is not an element', root);
+
+  if (!isElementRenderedInDOM(root))
+    return console.error('root is not real', root);
+
+  // Check `app`
+  if (!isElement(app))
+    return console.error('app is not an element', app);
+
+  // Append `app` to `root`
+  appendChild(root, app);
+
+  return root;
+}
+
 // Execute
 const ROOT = getElement(MAIN);
+const APP = createElement(INPUT);
 
-appRender(ROOT)(root => {
-  return console.log('OK?')
-});
+appRender(ROOT, APP);

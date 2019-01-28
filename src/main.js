@@ -37,7 +37,7 @@ const isElementRenderedInDOM = element => (
   app: HTMLElement(shallow render)
   => : HTMLElement(DOM render)
 */
-const appRender = (root, app) => {
+const createApp = (root, app) => {
   // Check `root`
   if (!isElement(root))
     return console.error('root is not an element', root);
@@ -59,4 +59,4 @@ const appRender = (root, app) => {
 const ROOT = getElement(MAIN);
 const APP = createElement(INPUT);
 
-appRender(ROOT, APP);
+createApp(ROOT, APP);

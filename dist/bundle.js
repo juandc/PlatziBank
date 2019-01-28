@@ -86,14 +86,63 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/dom/index.js":
+/*!**************************!*\
+  !*** ./src/dom/index.js ***!
+  \**************************/
+/*! exports provided: render, getElement, getElements, createElement, createText, setAttribute, appendChild */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./render */ \"./src/dom/render.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _render__WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"getElement\", function() { return _render__WEBPACK_IMPORTED_MODULE_0__[\"getElement\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"getElements\", function() { return _render__WEBPACK_IMPORTED_MODULE_0__[\"getElements\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"createElement\", function() { return _render__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"createText\", function() { return _render__WEBPACK_IMPORTED_MODULE_0__[\"createText\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"setAttribute\", function() { return _render__WEBPACK_IMPORTED_MODULE_0__[\"setAttribute\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"appendChild\", function() { return _render__WEBPACK_IMPORTED_MODULE_0__[\"appendChild\"]; });\n\n\n\n\n//# sourceURL=webpack:///./src/dom/index.js?");
+
+/***/ }),
+
+/***/ "./src/dom/render.js":
+/*!***************************!*\
+  !*** ./src/dom/render.js ***!
+  \***************************/
+/*! exports provided: render, getElement, getElements, createElement, createText, setAttribute, appendChild */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getElement\", function() { return getElement; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getElements\", function() { return getElements; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createElement\", function() { return createElement; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createText\", function() { return createText; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setAttribute\", function() { return setAttribute; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"appendChild\", function() { return appendChild; });\n/* harmony import */ var _utils_check_elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/check-elements */ \"./src/dom/utils/check-elements.js\");\n\n\n/**\n * @typedef {HTMLElement | Element} HTMLElement\n * @type {(root: HTMLElement, app: HTMLElement) => HTMLElement}\n */\nconst render = (root, app) => {\n  // Check `root`\n  if (!Object(_utils_check_elements__WEBPACK_IMPORTED_MODULE_0__[\"isHTMLElementRenderedInDOM\"])(root))\n    return console.error('root is not a real element', root);\n\n  // Append `app` to `root`\n  appendChild(root, app);\n\n  return root;\n}\n\nconst getElement = element => document.querySelector(element);\nconst getElements = element => document.querySelectorAll(element);\nconst createElement = element => document.createElement(element);\nconst createText = element => document.createTextNode(element);\nconst setAttribute = (element, attr, value) => element.setAttribute(attr, value);\nconst appendChild = (parent, child) => parent.appendChild(child);\n\n\n//# sourceURL=webpack:///./src/dom/render.js?");
+
+/***/ }),
+
+/***/ "./src/dom/utils/check-elements.js":
+/*!*****************************************!*\
+  !*** ./src/dom/utils/check-elements.js ***!
+  \*****************************************/
+/*! exports provided: isHTMLElement, isHTMLElementRenderedInDOM */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isHTMLElement\", function() { return isHTMLElement; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isHTMLElementRenderedInDOM\", function() { return isHTMLElementRenderedInDOM; });\n/**\n * @template Generic\n * @type {(element: Generic) => boolean}\n */\nconst isHTMLElement = element => (\n  element instanceof HTMLElement\n  || element instanceof Element\n);\n\n/**\n * @typedef {HTMLElement | Element} HTMLElement\n * @type {(element: HTMLElement) => boolean}\n */\nconst isHTMLElementRenderedInDOM = element => (\n  document.body.contains(element)\n);\n\n\n//# sourceURL=webpack:///./src/dom/utils/check-elements.js?");
+
+/***/ }),
+
+/***/ "./src/dom/utils/element-types.js":
+/*!****************************************!*\
+  !*** ./src/dom/utils/element-types.js ***!
+  \****************************************/
+/*! exports provided: SECTION, ARTICLE, MAIN, DIV, H1, H2, H3, A, P, SPAN, SMALL, INPUT, BUTTON */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SECTION\", function() { return SECTION; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ARTICLE\", function() { return ARTICLE; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"MAIN\", function() { return MAIN; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"DIV\", function() { return DIV; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"H1\", function() { return H1; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"H2\", function() { return H2; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"H3\", function() { return H3; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"A\", function() { return A; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"P\", function() { return P; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SPAN\", function() { return SPAN; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SMALL\", function() { return SMALL; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"INPUT\", function() { return INPUT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"BUTTON\", function() { return BUTTON; });\nconst SECTION = 'SECTION';\nconst ARTICLE = 'ARTICLE';\nconst MAIN = 'MAIN';\nconst DIV = 'DIV';\n\nconst H1 = 'H1';\nconst H2 = 'H2';\nconst H3 = 'H3';\n\nconst A = 'A';\nconst P = 'P';\nconst SPAN = 'SPAN';\nconst SMALL = 'SMALL';\n\nconst INPUT = 'INPUT';\nconst BUTTON = 'BUTTON';\n\n\n//# sourceURL=webpack:///./src/dom/utils/element-types.js?");
+
+/***/ }),
+
 /***/ "./src/main.js":
 /*!*********************!*\
   !*** ./src/main.js ***!
   \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("const SECTION = 'SECTION';\nconst MAIN = 'MAIN';\nconst DIV = 'DIV';\nconst P = 'P';\nconst H1 = 'H1';\nconst H2 = 'H2';\nconst H3 = 'H3';\nconst INPUT = 'INPUT';\nconst BUTTON = 'BUTTON';\n\nconst getElement = element => document.querySelector(element);\nconst getElements = element => document.querySelectorAll(element);\nconst createElement = element => document.createElement(element);\nconst createText = element => document.createTextNode(element);\nconst setAttribute = (element, attr, value) => element.setAttribute(attr, value);\nconst appendChild = (parent, child) => parent.appendChild(child);\n\n/*\n  element: Any\n  => : Boolean\n*/\nconst isElement = element => (\n  element instanceof HTMLElement\n  || element instanceof Element\n);\n\n/*\n  element: HTMLElement(**)\n  => : Boolean\n*/\nconst isElementRenderedInDOM = element => (\n  document.body.contains(element)\n);\n\n/*\n  root: HTMLElement(DOM render)\n  app: HTMLElement(shallow render)\n  => : HTMLElement(DOM render)\n*/\nconst createApp = (root, app) => {\n  // Check `root`\n  if (!isElement(root))\n    return console.error('root is not an element', root);\n\n  if (!isElementRenderedInDOM(root))\n    return console.error('root is not real', root);\n\n  // Check `app`\n  if (!isElement(app))\n    return console.error('app is not an element', app);\n\n  // Append `app` to `root`\n  appendChild(root, app);\n\n  return root;\n}\n\n// Execute\nconst ROOT = getElement(MAIN);\nconst APP = createElement(INPUT);\n\ncreateApp(ROOT, APP);\n\n\n//# sourceURL=webpack:///./src/main.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom */ \"./src/dom/index.js\");\n/* harmony import */ var _dom_utils_element_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom/utils/element-types */ \"./src/dom/utils/element-types.js\");\n\n\n\n// Execute\nconst ROOT = Object(_dom__WEBPACK_IMPORTED_MODULE_0__[\"getElement\"])(_dom_utils_element_types__WEBPACK_IMPORTED_MODULE_1__[\"MAIN\"]);\nconst APP = Object(_dom__WEBPACK_IMPORTED_MODULE_0__[\"createElement\"])(_dom_utils_element_types__WEBPACK_IMPORTED_MODULE_1__[\"INPUT\"]);\n\nObject(_dom__WEBPACK_IMPORTED_MODULE_0__[\"render\"])(ROOT, APP);\n\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ })
 

@@ -1,6 +1,6 @@
 {
   "name": "platzi-bank",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Automatic Bank Interface with Vainilla JS",
   "main": "src/main.js",
   "repository": "git@github.com:juandc/PlatziBank.git",

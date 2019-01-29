@@ -15,6 +15,16 @@ export const render = (root, app) => {
   return root;
 }
 
+render.displayName = 'customRender';
+
+/**
+ * @typedef {HTMLElement | Element} HTMLElement
+ * @type {(element: HTMLElement) => HTMLElement}
+ */
+export const createEvent = (element, type, cb) => (
+  element.addEventListener(type, cb)
+);
+
 /**
  * @typedef {HTMLElement | Element} HTMLElement
  * @type {(element: HTMLElement) => HTMLElement}
@@ -23,7 +33,7 @@ export const getElement = element => document.querySelector(element);
 
 /**
  * @typedef {HTMLElement | Element} HTMLElement
- * @type {(element: HTMLElement) => HTMLElement}
+ * @type {(element: HTMLElement) => Array<HTMLElement>}
  */
 export const getElements = element => document.querySelectorAll(element);
 

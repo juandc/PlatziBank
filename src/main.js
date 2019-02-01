@@ -1,22 +1,36 @@
-import { createElement, createEvent, getElement, setAttribute, render } from './dom';
-import { MAIN, DIV, INPUT } from './dom/utils/element-types';
+import { createApp } from './dom/render';
 
-// Execute
-const ROOT = getElement(MAIN);
+const testApp = createApp('MAIN', () => {
+  const AElement = document.createElement('A');
+  const AText = document.createTextNode('Link');
 
-const CantityInput = createElement(INPUT, {
-  // type: 'number',
-  placeholder: 'Cantidad',
-  value: '',
+  AElement.appendChild(AText);
+  AElement.setAttribute('href', '#');
+
+  console.log({ AElement });
+
+  return AElement;
 });
 
-createEvent(CantityInput, 'input', (event) => {
-  if (isNaN(event.data) && isNaN(event.target.value)) {
-    return console.log('Not a Number');
-  }
-});
+// import { createElement, createEvent, getElement, setAttribute, render } from './dom';
+// import { MAIN, DIV, INPUT } from './dom/utils/element-types';
+
+// // Execute
+// const ROOT = getElement(MAIN);
+
+// const CantityInput = createElement(INPUT, {
+//   // type: 'number',
+//   placeholder: 'Cantidad',
+//   value: '',
+// });
+
+// createEvent(CantityInput, 'input', (event) => {
+//   if (isNaN(event.data) && isNaN(event.target.value)) {
+//     return console.log('Not a Number');
+//   }
+// });
 
 
-const APP = createElement(DIV, { id: 'div' }, CantityInput);
+// const APP = createElement(DIV, { id: 'div' }, CantityInput);
 
-render(ROOT, APP);
+// render(ROOT, APP);

@@ -35,13 +35,26 @@ export const getElement = element => document.querySelector(element);
  * @typedef {HTMLElement | Element} HTMLElement
  * @type {(element: HTMLElement) => Array<HTMLElement>}
  */
-export const getElements = element => document.querySelectorAll(element);
+export const getElements = (element) => document.querySelectorAll(element);
 
 /**
+ * @template Generic
  * @typedef {HTMLElement | Element} HTMLElement
- * @type {(element: HTMLElement) => HTMLElement}
+ * @type {(element: HTMLElement, attrs: Object, child:  HTMLElement) => HTMLElement}
  */
-export const createElement = element => document.createElement(element);
+export const createElement = (element, listOfAttributes, child) => {
+  const createdElement = document.createElement(element);
+
+  if (listOfAttributes) {
+    setAttributes(createdElement, listOfAttributes);
+  }
+
+  if (child) {
+    appendChild(createdElement, child);
+  }
+
+  return createdElement;
+}
 
 /**
  * @typedef {HTMLElement | Element} HTMLElement
@@ -53,8 +66,18 @@ export const createText = text => document.createTextNode(text);
  * @typedef {HTMLElement | Element} HTMLElement
  * @type {(element: HTMLElement, attr: string, value: string) => HTMLElement}
  */
-export const setAttribute = (element, attr, value) =>
-  element.setAttribute(attr, value);
+export const setAttribute = (element, attr, value) => {
+  const elementWithAttribute = element.setAttribute(attr, value);
+  return element;
+}
+
+const setAttributes = (element, listOfAttributes) => {
+  const elementWithNewAttributes = Object.keys(listOfAttributes).forEach(
+    attrName => setAttribute(element, attrName, listOfAttributes[attrName])
+  );
+
+  return element;
+};
 
 /**
  * @typedef {HTMLElement | Element} HTMLElement
